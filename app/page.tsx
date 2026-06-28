@@ -2,7 +2,7 @@ import ToolCard from "../components/ToolCard";
 
 export default function Home() {
   return (
-    <main>
+    <main className="pt-20">
       {/* Hero Section */}
       <section className="px-6 py-16">
   <div className="mx-auto max-w-6xl">
