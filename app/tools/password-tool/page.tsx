@@ -1,0 +1,9 @@
+export default function Page() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      <h1 className="text-4xl text-cyan-400 font-bold">
+        Password Tool
+      </h1>
+    </div>
+  );
+}

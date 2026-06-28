@@ -1,57 +1,15 @@
+import Hero from "../components/Hero";
 import ToolCard from "../components/ToolCard";
 
 export default function Home() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      <section className="px-6 py-16">
-  <div className="mx-auto max-w-6xl">
-
-    <div className="grid gap-8 md:grid-cols-4">
-
-      <div className="text-center">
-        <h3 className="text-4xl font-bold text-teal-400">
-          10+
-        </h3>
-        <p className="mt-2 text-zinc-400">
-          Tools
-        </p>
-      </div>
-
-      <div className="text-center">
-        <h3 className="text-4xl font-bold text-teal-400">
-          1K+
-        </h3>
-        <p className="mt-2 text-zinc-400">
-          Users
-        </p>
-      </div>
-
-      <div className="text-center">
-        <h3 className="text-4xl font-bold text-teal-400">
-          24/7
-        </h3>
-        <p className="mt-2 text-zinc-400">
-          Availability
-        </p>
-      </div>
-
-      <div className="text-center">
-        <h3 className="text-4xl font-bold text-teal-400">
-          100%
-        </h3>
-        <p className="mt-2 text-zinc-400">
-          Free Tools
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
+<Hero />
       {/* Featured Tools */}
-      <section className="px-6 py-24">
+      <section
+  id="featured-tools"
+  className="px-6 py-24"
+>
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-4 text-center text-5xl font-bold">
             Featured Tools
