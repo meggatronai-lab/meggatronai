@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
-
   const tools = [
     { name: "PDF Merger", link: "/tools/pdf-merger" },
     { name: "Image Compressor", link: "/tools/image-compressor" },
@@ -29,20 +28,15 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,.25)_45%,rgba(0,0,0,.75)_100%)] pointer-events-none" />
 
       {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[180px]" />
+      <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[150px]" />
 
       {/* Content */}
-      <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl items-center px-4 sm:px-6">
+      <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl flex-col lg:flex-row items-center justify-center lg:justify-between px-4 sm:px-6">
 
-        <div className="max-w-3xl">
+        {/* LEFT CONTENT */}
+        <div className="max-w-3xl text-center lg:text-left">
 
-          {/* Badge */}
-          <div className="mb-6 text-cyan-300 text-sm tracking-widest">
-  BUILD. AUTOMATE. SIMPLIFY.
-</div>
-
-          {/* Heading */}
-          <h1 className="mt-6 sm:mt-8 text-4xl sm:text-6xl lg:text-8xl font-black leading-[1.05] text-white">
+          <h1 className="mt-10 lg:mt-0 text-3xl sm:text-5xl lg:text-8xl font-black leading-[1.1] text-white">
             Everything <br />
             <span className="bg-gradient-to-r from-cyan-300 via-white to-teal-300 bg-clip-text text-transparent">
               You Need.
@@ -51,16 +45,14 @@ export default function Hero() {
             In One Place.
           </h1>
 
-          {/* Description */}
-          <p className="mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg lg:text-xl text-zinc-300">
+          <p className="mt-6 text-sm sm:text-lg lg:text-xl text-zinc-300">
             Discover powerful tools for PDFs, images, coding, SEO, and productivity — all in one platform.
           </p>
 
-          {/* Button */}
-          <div className="mt-10 sm:mt-12">
+          <div className="mt-8 flex justify-center lg:justify-start">
             <Link
               href="/tools"
-              className="inline-flex items-center rounded-2xl bg-cyan-400 px-6 sm:px-8 py-3 sm:py-4 font-bold text-black transition hover:bg-cyan-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.7)]"
+              className="inline-flex items-center rounded-2xl bg-cyan-400 px-6 sm:px-8 py-3 sm:py-4 font-bold text-black transition hover:bg-cyan-300 hover:scale-105"
             >
               Explore Tools
               <ArrowRight className="ml-3" size={20} />
@@ -68,38 +60,45 @@ export default function Hero() {
           </div>
 
         </div>
+
+        {/* RIGHT TOOLS CARD (RESPONSIVE) */}
+        <div className="mt-12 lg:mt-0 w-full max-w-sm z-50">
+
+          <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5">
+
+            <p className="mb-5 text-center text-cyan-300 font-bold tracking-[0.3em] text-sm">
+              POPULAR TOOLS
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-1 gap-3">
+
+              {tools.map((tool) => (
+                <Link
+                  key={tool.name}
+                  href={tool.link}
+                  className="
+                    flex items-center justify-center
+                    rounded-xl border border-white/10
+                    bg-black/30 px-3 py-3
+                    text-white text-xs sm:text-sm font-medium
+                    transition-all duration-300
+
+                    hover:text-cyan-300
+                    hover:border-cyan-300
+                    hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]
+                  "
+                >
+                  {tool.name}
+                </Link>
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
-
-      <div className="absolute right-6 sm:right-16 top-1/2 w-80 -translate-y-1/2 z-50">
-  <p className="mb-6 text-center text-cyan-300 font-bold tracking-[0.35em] text-sm">
-    POPULAR TOOLS
-  </p>
-
-  {tools.map((tool) => (
-    <Link
-      key={tool.name}
-      href={tool.link}
-      className="
-        mb-4 flex items-center justify-center
-        rounded-xl border border-white/15
-        bg-black/30 px-4 py-4
-        text-white text-sm font-medium
-
-        cursor-pointer
-        transition-all duration-300
-
-        hover:text-cyan-300
-        hover:border-cyan-300
-        hover:bg-black/60
-        hover:scale-[1.06]
-        hover:shadow-[0_0_35px_rgba(34,211,238,0.9)]
-      "
-    >
-      {tool.name}
-    </Link>
-  ))}
-</div>
-
     </section>
   );
 }
