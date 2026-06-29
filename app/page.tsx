@@ -1,42 +1,16 @@
 import Hero from "../components/Hero";
+import FeaturedTools from "../components/FeaturedTool/FeaturedToolsComponent";
 import ToolCard from "../components/ToolCard";
 
 export default function Home() {
   return (
     <main className="pt-20">
-<Hero />
-      {/* Featured Tools */}
-      <section
-  id="featured-tools"
-  className="px-6 py-24"
->
-        <div className="mx-auto max-w-7xl">
-          <h2 className="mb-4 text-center text-5xl font-bold">
-            Featured Tools
-          </h2>
 
-          <p className="mb-14 text-center text-lg text-zinc-400">
-            Discover the most popular tools on MeggatronAI.
-          </p>
+      <Hero />
 
-          <div className="grid gap-8 md:grid-cols-3">
-            <ToolCard
-              title="AI Writer"
-              description="Generate blogs, emails, social posts and content in seconds."
-            />
+      <FeaturedTools />
 
-            <ToolCard
-              title="AI Summarizer"
-              description="Convert lengthy articles and documents into concise summaries."
-            />
-
-            <ToolCard
-              title="Password Generator"
-              description="Create strong and secure passwords instantly."
-            />
-          </div>
-        </div>
-      </section>
+      {/* Explore Categories */}
 
       {/* Explore Categories */}
 <section className="px-6 py-24">
