@@ -2,8 +2,6 @@ import Newsletter from "./Newsletter";
 
 import FooterLinks from "./FooterLinks";
 
-import FooterStats from "./FooterStats";
-
 import FooterSocial from "./FooterSocial";
 
 import FooterBottom from "./FooterBottom";
@@ -38,13 +36,11 @@ export default function Footer() {
 
   <Newsletter />
 
-  <FooterLinks />
+<FooterLinks />
 
-  <FooterStats />
+<FooterSocial />
 
-  <FooterSocial /> 
-
-  <FooterBottom />
+<FooterBottom />
 
 
 
