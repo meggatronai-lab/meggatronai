@@ -332,57 +332,6 @@ export default function FooterLinks() {
 
           <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
 
-            {/* Copyright */}
-
-            <div>
-
-              <h3 className="text-xl font-bold text-white">
-                Meggatron
-                <span className="text-cyan-400">AI</span>
-              </h3>
-
-              <p className="mt-3 max-w-lg text-sm leading-7 text-zinc-500">
-                © {new Date().getFullYear()} MeggatronAI.
-                All rights reserved.
-                Built for creators, students,
-                developers and professionals.
-              </p>
-
-            </div>
-
-            {/* Bottom Links */}
-
-            <div className="flex flex-wrap items-center justify-center gap-6">
-
-              <Link
-                href="/privacy-policy"
-                className="text-sm text-zinc-500 transition hover:text-cyan-400"
-              >
-                Privacy
-              </Link>
-
-              <Link
-                href="/terms"
-                className="text-sm text-zinc-500 transition hover:text-cyan-400"
-              >
-                Terms
-              </Link>
-
-              <Link
-                href="/cookies"
-                className="text-sm text-zinc-500 transition hover:text-cyan-400"
-              >
-                Cookies
-              </Link>
-
-              <Link
-                href="/contact"
-                className="text-sm text-zinc-500 transition hover:text-cyan-400"
-              >
-                Contact
-              </Link>
-
-            </div>
 
           </div>
 
