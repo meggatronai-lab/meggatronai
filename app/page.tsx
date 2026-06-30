@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer";
 import Hero from "../components/Hero";
 import FeaturedTools from "../components/FeaturedTool/FeaturedToolsComponent";
 import ToolCard from "../components/ToolCard";
@@ -226,6 +227,7 @@ export default function Home() {
           Explore Tools
         </button>
       </section>
+      <Footer/>
     </main>
   );
 }
