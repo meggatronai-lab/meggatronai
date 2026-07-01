@@ -869,49 +869,6 @@ export default function QRGeneratorPage() {
           </motion.div>
         </section>
 
-        <footer className="mt-28 border-t border-white/10 py-10 sm:mt-32 sm:py-12">
-          <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
-            <div className="text-center lg:text-left">
-              <h3 className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-2xl font-black text-transparent sm:text-3xl">
-                MeggatronAI
-              </h3>
-              <p className="mt-3 text-sm text-zinc-500 sm:text-base">
-                Premium AI & Productivity Tools
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-5 text-sm sm:gap-6">
-              <Link
-                href="/"
-                className="text-zinc-400 transition hover:text-cyan-400"
-              >
-                Home
-              </Link>
-              <Link
-                href="/tools"
-                className="text-zinc-400 transition hover:text-cyan-400"
-              >
-                Tools
-              </Link>
-              <Link
-                href="/about"
-                className="text-zinc-400 transition hover:text-cyan-400"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-zinc-400 transition hover:text-cyan-400"
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-10 border-t border-white/10 pt-8 text-center text-sm text-zinc-500">
-            © {new Date().getFullYear()} MeggatronAI. All Rights Reserved.
-          </div>
-        </footer>
       </div>
     </main>
   );

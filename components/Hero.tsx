@@ -28,7 +28,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,.25)_45%,rgba(0,0,0,.75)_100%)] pointer-events-none" />
 
       {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[150px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[150px]" />
 
       {/* Content */}
       <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl flex-col lg:flex-row items-center justify-center lg:justify-between px-4 sm:px-6">
