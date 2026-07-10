@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -26,16 +27,25 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
-        {/* Logo */}
-        <Link href="/" className="select-none">
-          <h1 className="text-2xl font-bold tracking-tight text-white">
-            Meggatron
-            <span className="text-teal-400">AI</span>
-          </h1>
-        </Link>
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
+  {/* Logo */}
+
+  <Link
+    href="/"
+    aria-label="MeggatronAI Home"
+    className="flex items-center"
+  >
+    <Image
+      src="/logo/logo-horizontal.svg"
+      alt="MeggatronAI"
+      width={190}
+      height={57}
+      priority
+      className="h-auto w-[170px] md:w-[190px] lg:w-[210px]"
+    />
+  </Link>
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
 

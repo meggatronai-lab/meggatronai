@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,35 +16,54 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MeggatronAI",
-  description: "AI Tools & Utility Tools Platform",
+  metadataBase: new URL("https://www.meggatronai.com"),
+
+  title: {
+    default: "MeggatronAI | Free AI Tools",
+    template: "%s | MeggatronAI",
+  },
+
+  description:
+    "Free AI tools for productivity, image compression, PDF tools, writing, and more.",
+
+  openGraph: {
+    title: "MeggatronAI",
+    description: "Free AI Tools Platform",
+    url: "https://www.meggatronai.com",
+    siteName: "MeggatronAI",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "MeggatronAI",
+    description: "Free AI Tools Platform",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="flex h-full flex-col bg-black text-white">
-
-  <Navbar />
-        {/* Navigation */}
+      <body className="min-h-screen bg-[#050816] text-white antialiased">
         <Navbar />
 
-        {/* Global Footer (Remove if Footer is rendered in page.tsx) */}
-        {/* <Footer /> */}
-<Navbar />
+        <main className="flex min-h-screen flex-col">
+          {children}
+        </main>
 
-<main className="flex-1">
-  {children}
-</main>
-
-<ScrollToTop />
+        <ScrollToTop />
       </body>
     </html>
   );

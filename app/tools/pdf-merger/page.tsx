@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
+import PdfMerger from "@/components/tools/PdfMerger";
+import { createToolMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createToolMetadata({
+  title: "PDF Merger",
+  description:
+    "Merge multiple PDF files into one document online for free. Fast, secure and private PDF Merger by MeggatronAI.",
+  slug: "pdf-merger",
+});
+
 export default function Page() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <h1 className="text-4xl text-cyan-400 font-bold">
-        PDF Merger Tool
-      </h1>
-    </div>
-  );
+  return <PdfMerger />;
 }
