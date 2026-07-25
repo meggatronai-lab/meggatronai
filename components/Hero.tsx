@@ -1,92 +1,114 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const tools = [
+  {
+    name: "PDF Merger",
+    link: "/tools/pdf-merger",
+  },
+  {
+    name: "Image Compressor",
+    link: "/tools/image-compressor",
+  },
+  {
+    name: "QR Generator",
+    link: "/tools/qr-generator",
+  },
+  {
+    name: "Password Tool",
+    link: "/tools/password-tool",
+  },
+  {
+    name: "Text Formatter",
+    link: "/tools/text-formatter",
+  },
+];
 
 export default function Hero() {
-  const tools = [
-    { name: "PDF Merger", link: "/tools/pdf-merger" },
-    { name: "Image Compressor", link: "/tools/image-compressor" },
-    { name: "QR Generator", link: "/tools/qr-generator" },
-    { name: "Password Tool", link: "/tools/password-tool" },
-    { name: "Text Formatter", link: "/tools/text-formatter" },
-  ];
-
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative isolate overflow-hidden">
 
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/images/hero-bg.png.png')",
-        }}
+      {/* Background Image */}
+      <Image
+        src="/images/hero-bg.png.webp"
+        alt="MeggatronAI Background"
+        fill
+        priority
+        quality={80}
+        sizes="100vw"
+        className="object-cover"
       />
 
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-black/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,.25)_45%,rgba(0,0,0,.75)_100%)] pointer-events-none" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-[#050816]" />
 
       {/* Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[150px]" />
+      <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-[150px]" />
 
-      {/* Content */}
-      <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl flex-col lg:flex-row items-center justify-center lg:justify-between px-4 sm:px-6">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center gap-16 px-6 pt-28 pb-16 lg:flex-row lg:justify-between">
 
-        {/* LEFT CONTENT */}
+        {/* Left Side */}
         <div className="max-w-3xl text-center lg:text-left">
 
-          <h1 className="mt-10 lg:mt-0 text-3xl sm:text-5xl lg:text-8xl font-black leading-[1.1] text-white">
-            Everything <br />
-            <span className="bg-gradient-to-r from-cyan-300 via-white to-teal-300 bg-clip-text text-transparent">
-              You Need.
-            </span>
+          <span className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300">
+            Free AI & Productivity Tools
+          </span>
+
+          <h1 className="mt-8 text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
+            Everything You Need.
             <br />
-            In One Place.
+            <span className="bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent">
+              In One Place.
+            </span>
           </h1>
 
-          <p className="mt-6 text-sm sm:text-lg lg:text-xl text-zinc-300">
-            Discover powerful tools for PDFs, images, coding, SEO, and productivity — all in one platform.
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-300">
+            Free AI tools, PDF utilities, image editors, developer tools,
+            SEO tools and productivity solutions designed to help you work
+            faster every day.
           </p>
 
-          <div className="mt-8 flex justify-center lg:justify-start">
+          <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
+
             <Link
               href="/tools"
-              className="inline-flex items-center rounded-2xl bg-cyan-400 px-6 sm:px-8 py-3 sm:py-4 font-bold text-black transition hover:bg-cyan-300 hover:scale-105"
+              className="inline-flex items-center rounded-xl bg-cyan-400 px-8 py-4 font-semibold text-black transition hover:bg-cyan-300"
             >
               Explore Tools
-              <ArrowRight className="ml-3" size={20} />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
+
+            <Link
+              href="/about"
+              className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+            >
+              Learn More
+            </Link>
+
           </div>
 
         </div>
 
-        {/* RIGHT TOOLS CARD (RESPONSIVE) */}
-        <div className="mt-12 lg:mt-0 w-full max-w-sm z-50">
+        {/* Popular Tools */}
+        <div className="w-full max-w-sm">
 
-          <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5">
+          <div className="rounded-3xl border border-white/10 bg-black/35 p-6 backdrop-blur-xl">
 
-            <p className="mb-5 text-center text-cyan-300 font-bold tracking-[0.3em] text-sm">
-              POPULAR TOOLS
-            </p>
+            <h2 className="mb-6 text-center text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+              Popular Tools
+            </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-1 gap-3">
+            <div className="grid gap-3">
 
               {tools.map((tool) => (
                 <Link
                   key={tool.name}
                   href={tool.link}
-                  className="
-                    flex items-center justify-center
-                    rounded-xl border border-white/10
-                    bg-black/30 px-3 py-3
-                    text-white text-xs sm:text-sm font-medium
-                    transition-all duration-300
-
-                    hover:text-cyan-300
-                    hover:border-cyan-300
-                    hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]
-                  "
+                  className="rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-center text-white transition hover:border-cyan-500 hover:bg-cyan-500/10"
                 >
                   {tool.name}
                 </Link>
@@ -99,6 +121,7 @@ export default function Hero() {
         </div>
 
       </div>
+
     </section>
   );
 }

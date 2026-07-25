@@ -1,81 +1,67 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
 import Background from "./Background";
 import ToolCategories from "./ToolCategories";
 import FeaturedCard from "./FeaturedCard";
 import ToolGrid from "./ToolGrid";
 
-export default function FeaturedToolsComponent() {
-
-  const [activeCategory, setActiveCategory] = useState("AI");
-
+export default function FeaturedTools() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
-
-      {/* 🌌 Background */}
+    <section className="relative bg-[#050816] py-24">
       <Background />
 
-      {/* ✨ Animated Container */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="relative z-10 mx-auto max-w-7xl px-6"
-      >
+      <div className="relative mx-auto max-w-7xl px-6">
 
-        {/* 🏷 Header */}
-        <div className="text-center">
+        {/* Heading */}
+        <div className="mx-auto max-w-3xl text-center">
 
-          <div className="inline-flex items-center rounded-full border border-cyan-400/30 bg-cyan-500/10 px-5 py-2 backdrop-blur-md">
-            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Featured Tools
-            </span>
-          </div>
+          <span className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-2 text-sm font-medium text-cyan-400">
+            FEATURED TOOLS
+          </span>
 
-          <h2 className="mt-6 text-4xl font-extrabold text-white md:text-6xl lg:text-7xl leading-tight">
-            Powerful Tools
+          <h2 className="mt-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            Powerful Tools.
             <br />
-            <span className="bg-gradient-to-r from-cyan-300 via-teal-300 to-white bg-clip-text text-transparent">
-              Designed For Everyone
-            </span>
+            Zero Complexity.
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-zinc-300 text-lg">
-            Explore AI, PDF, image, developer and productivity tools to simplify your workflow.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+            Explore our growing collection of AI, PDF, Image, SEO,
+            Developer and Text tools built to save you time.
           </p>
 
         </div>
 
-        {/* 🎯 Categories */}
-        <div className="mt-14">
-          <ToolCategories
-            active={activeCategory}
-            setActive={setActiveCategory}
-          />
+        {/* Categories */}
+        <div className="mt-12">
+          <ToolCategories />
         </div>
 
-        {/* 🧩 MAIN GRID */}
-        <div className="mt-20 grid grid-cols-1 gap-8 lg:grid-cols-[1.5fr_1fr]">
+        {/* Cards */}
+        <div className="mt-16 grid gap-8 lg:grid-cols-12">
 
-          {/* ⭐ LEFT */}
-          <FeaturedCard />
+          <div className="lg:col-span-5">
+            <FeaturedCard />
+          </div>
 
-          {/* 🧱 RIGHT */}
-          <ToolGrid activeCategory={activeCategory} />
+          <div className="lg:col-span-7">
+            <ToolGrid />
+          </div>
 
         </div>
 
-        {/* 🔘 BUTTON */}
+        {/* Button */}
+
         <div className="mt-16 flex justify-center">
-          <button className="rounded-xl border border-white/10 bg-white/5 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xl transition hover:border-cyan-400/50 hover:bg-cyan-500/10 hover:shadow-[0_0_25px_rgba(34,211,238,.2)]">
-            View All Tools
-          </button>
+
+          <a
+            href="/tools"
+            className="rounded-xl border border-cyan-500/20 bg-cyan-500/10 px-6 py-3 font-medium text-cyan-400"
+          >
+            Explore All Tools
+          </a>
+
         </div>
 
-      </motion.div>
+      </div>
     </section>
   );
 }

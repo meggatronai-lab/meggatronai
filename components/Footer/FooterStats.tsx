@@ -1,12 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   Wrench,
   Users,
   Zap,
   ShieldCheck,
 } from "lucide-react";
+
 
 const stats = [
   {
@@ -35,6 +33,7 @@ const stats = [
   },
 ];
 
+
 export default function FooterStats() {
   return (
     <section className="px-6 py-20">
@@ -43,25 +42,14 @@ export default function FooterStats() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-          {stats.map((stat, index) => {
+          {stats.map((stat) => {
 
             const Icon = stat.icon;
 
             return (
 
-              <motion.div
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: index * 0.12,
-                  duration: 0.6,
-                }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -8,
-                  scale: 1.03,
-                }}
                 className="
                   group
                   relative
@@ -74,6 +62,8 @@ export default function FooterStats() {
                   backdrop-blur-xl
                   transition-all
                   duration-500
+                  hover:-translate-y-2
+                  hover:scale-[1.03]
                   hover:border-cyan-400/40
                   hover:shadow-[0_0_40px_rgba(34,211,238,.18)]
                 "
@@ -81,23 +71,47 @@ export default function FooterStats() {
 
                 {/* Glow */}
 
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-cyan-500/10 blur-[70px]" />
+                <div
+                  className="
+                  absolute
+                  -right-10
+                  -top-10
+                  h-40
+                  w-40
+                  rounded-full
+                  bg-cyan-500/10
+                  blur-[70px]
+                  "
+                />
+
 
                 <div
-                  className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 ${stat.color}`}
+                  className={`
+                    flex
+                    h-16
+                    w-16
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    bg-white/10
+                    ${stat.color}
+                  `}
                 >
                   <Icon size={30} />
                 </div>
+
 
                 <h3 className="mt-8 text-5xl font-black text-white">
                   {stat.value}
                 </h3>
 
+
                 <p className="mt-3 text-lg text-zinc-400">
                   {stat.label}
                 </p>
 
-              </motion.div>
+
+              </div>
 
             );
           })}

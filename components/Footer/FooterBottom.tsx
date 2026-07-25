@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 
 export default function FooterBottom() {
@@ -9,15 +6,8 @@ export default function FooterBottom() {
 
   return (
     <section className="border-t border-white/10 px-6 py-8">
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center lg:flex-row"
-      >
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center lg:flex-row">
         {/* Copyright */}
-
         <p className="text-sm text-zinc-500">
           © {year}{" "}
           <span className="font-semibold text-white">
@@ -27,39 +17,37 @@ export default function FooterBottom() {
         </p>
 
         {/* Legal Links */}
-
         <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
           <Link
             href="/privacy"
-            className="text-zinc-500 transition hover:text-cyan-400"
+            className="text-zinc-500 transition-colors duration-300 hover:text-cyan-400"
           >
             Privacy Policy
           </Link>
 
           <Link
             href="/terms"
-            className="text-zinc-500 transition hover:text-cyan-400"
+            className="text-zinc-500 transition-colors duration-300 hover:text-cyan-400"
           >
             Terms of Service
           </Link>
 
           <Link
             href="/cookies"
-            className="text-zinc-500 transition hover:text-cyan-400"
+            className="text-zinc-500 transition-colors duration-300 hover:text-cyan-400"
           >
             Cookies
           </Link>
 
           <Link
             href="/contact"
-            className="text-zinc-500 transition hover:text-cyan-400"
+            className="text-zinc-500 transition-colors duration-300 hover:text-cyan-400"
           >
             Contact
           </Link>
         </div>
 
         {/* Made With */}
-
         <div className="flex items-center gap-2 text-sm text-zinc-500">
           <span>Made with</span>
 
@@ -75,7 +63,7 @@ export default function FooterBottom() {
             </span>
           </span>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

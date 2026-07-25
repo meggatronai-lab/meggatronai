@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   FileText,
   Image,
@@ -8,56 +6,58 @@ import {
   QrCode,
 } from "lucide-react";
 
-type Props = {
-  activeCategory: string;
-};
+const tools = [
+  {
+    title: "PDF Merger",
+    description: "Merge multiple PDF files into one document.",
+    href: "/tools/pdf-merger",
+    icon: FileText,
+  },
+  {
+    title: "Image Compressor",
+    description: "Compress images without losing quality.",
+    href: "/tools/image-compressor",
+    icon: Image,
+  },
+  {
+    title: "Password Generator",
+    description: "Generate strong and secure passwords instantly.",
+    href: "/tools/password-generator",
+    icon: Shield,
+  },
+  {
+    title: "QR Generator",
+    description: "Create beautiful QR codes in seconds.",
+    href: "/tools/qr-generator",
+    icon: QrCode,
+  },
+];
 
-export default function ToolGrid({ activeCategory }: Props) {
-
-  const allTools = [
-    { title: "PDF Merge", category: "PDF", icon: FileText },
-    { title: "Image Compressor", category: "Images", icon: Image },
-    { title: "Password Generator", category: "Security", icon: Shield },
-    { title: "QR Generator", category: "Developer", icon: QrCode },
-  ];
-
-  const filteredTools =
-    activeCategory === "AI"
-      ? allTools
-      : allTools.filter((tool) => tool.category === activeCategory);
-
+export default function ToolGrid() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
+    <div className="grid gap-6 sm:grid-cols-2">
 
-      {filteredTools.map((tool) => {
+      {tools.map((tool) => {
         const Icon = tool.icon;
 
         return (
-          <motion.div
+          <Link
             key={tool.title}
-            whileHover={{ y: -6, scale: 1.02 }}
-            className="group relative rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:border-cyan-400/40 hover:shadow-[0_0_35px_rgba(34,211,238,.2)]"
+            href={tool.href}
+            className="rounded-3xl border border-white/10 bg-[#0B1220] p-6"
           >
-
-            <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-cyan-500/10 blur-[80px]" />
-
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/10">
-              <Icon size={26} className="text-cyan-400" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10">
+              <Icon className="h-6 w-6 text-cyan-400" />
             </div>
 
-            <h3 className="mt-5 text-lg font-semibold text-white">
+            <h3 className="mt-6 text-xl font-semibold text-white">
               {tool.title}
             </h3>
 
-            <p className="mt-2 text-sm text-zinc-400">
-              Powerful tool to boost productivity.
+            <p className="mt-3 text-sm leading-7 text-zinc-400">
+              {tool.description}
             </p>
-
-            <div className="mt-4 text-sm text-cyan-400 opacity-0 group-hover:opacity-100">
-              Open →
-            </div>
-
-          </motion.div>
+          </Link>
         );
       })}
 
