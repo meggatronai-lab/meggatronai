@@ -10,6 +10,18 @@ export interface BlogArticle {
 
 
 export const blogArticles: BlogArticle[] = [
+
+  {
+    title: "College Essay Word Count: The Complete 2026 Guide",
+    slug: "/blog/college-essay-word-count",
+    category: "Writing",
+    description:
+      "Learn the ideal college essay word count, Common App limits, average essay lengths, and tips to edit your essay effectively.",
+    publishedAt: "July 2026",
+    readingTime: "12 min read",
+    featured: true,
+  },
+
   {
     title: "How to Count Words Online: Complete Guide",
     description:
@@ -42,4 +54,5 @@ export const blogArticles: BlogArticle[] = [
     readingTime: "7 min read",
     featured: false,
   },
+
 ];
