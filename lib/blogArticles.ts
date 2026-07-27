@@ -10,7 +10,17 @@ export interface BlogArticle {
 
 
 export const blogArticles: BlogArticle[] = [
-
+    
+{
+  title: "How to Count Words Online: Complete Guide",
+  description:
+    "Learn how to count words online, understand how word counters work, and discover the easiest ways to measure words, characters, sentences, and text length accurately.",
+  slug: "/blog/how-to-count-words-online",
+  category: "Writing",
+  publishedAt: "July 2026",
+  readingTime: "5 min read",
+  featured: true,
+},
   {
     title: "College Essay Word Count: The Complete 2026 Guide",
     slug: "/blog/college-essay-word-count",
