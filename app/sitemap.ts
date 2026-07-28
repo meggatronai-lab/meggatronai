@@ -1,107 +1,143 @@
 import { MetadataRoute } from "next";
+import fs from "fs";
+import path from "path";
+
+
+const BASE_URL = "https://www.meggatronai.com";
+
+
+
+function getRoutes(folder: string) {
+
+  const directory = path.join(
+    process.cwd(),
+    "app",
+    folder
+  );
+
+
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+
+
+  return fs
+    .readdirSync(directory, {
+      withFileTypes: true,
+    })
+    .filter((item) => item.isDirectory())
+    .map((item) => {
+
+      return `${BASE_URL}/${folder}/${item.name}`;
+
+    });
+
+}
+
+
+
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.meggatronai.com";
+
+
+  const staticPages = [
+
+    "",
+
+    "about",
+
+    "blog",
+
+    "contact",
+
+    "faq",
+
+    "privacy-policy",
+
+    "support",
+
+    "terms-of-service",
+
+  ];
+
+
+
+
+  const staticRoutes = staticPages.map((page) => ({
+
+    url:
+      page === ""
+        ? BASE_URL
+        : `${BASE_URL}/${page}`,
+
+    lastModified:
+      new Date(),
+
+    changeFrequency:
+      "monthly" as const,
+
+    priority:
+      page === ""
+        ? 1
+        : 0.7,
+
+  }));
+
+
+
+
+
+  const toolRoutes = getRoutes("tools").map((route) => ({
+
+    url:
+      route,
+
+    lastModified:
+      new Date(),
+
+    changeFrequency:
+      "weekly" as const,
+
+    priority:
+      0.9,
+
+  }));
+
+
+
+
+
+
+  const blogRoutes = getRoutes("blog").map((route) => ({
+
+    url:
+      route,
+
+    lastModified:
+      new Date(),
+
+    changeFrequency:
+      "monthly" as const,
+
+    priority:
+      0.8,
+
+  }));
+
+
+
+
+
+
 
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
 
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    ...staticRoutes,
 
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+    ...toolRoutes,
 
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    ...blogRoutes,
 
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-
-    {
-      url: `${baseUrl}/support`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-
-    // TOOLS
-
-    {
-      url: `${baseUrl}/tools/image-compressor`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${baseUrl}/tools/password-tool`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${baseUrl}/tools/pdf-merger`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${baseUrl}/tools/qr-generator`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${baseUrl}/tools/text-formatter`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${baseUrl}/tools/word-counter`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
   ];
+
 }
